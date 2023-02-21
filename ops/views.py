@@ -12,12 +12,14 @@ TOKEN = os.environ["TOKEN"]
 
 class OPS(generics.GenericAPIView):
   def post(self,req):
+    
     resultedClients = []
     body = json.loads(req.body)
-    if body["api_key"] == TOKEN:
+    if req.META["HTTP_CONEXT"] == TOKEN:
         clients = body["clients"]
         for client in clients:
             res = operate(client["olt"], client["action"], client)
             resultedClients.append(res)
+            # resultedClients.append(client)
         return Response({"message":"OK", "data": resultedClients})
     return Response({"message":"invalid api_key", "data": "ERR"})
