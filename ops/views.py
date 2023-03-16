@@ -3,7 +3,7 @@ from rest_framework import status,generics
 
 # from .scripts.OLT import olt
 
-class SimpleCRUD(generics.GenericAPIView):
+class OPS(generics.GenericAPIView):
   def get(self,req):
     print(req)
     data = {"message":"hello"}

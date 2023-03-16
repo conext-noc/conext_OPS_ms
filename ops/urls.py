@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import SimpleCRUD
+from .views import OPS
 
 urlpatterns = [
-    path("", SimpleCRUD.as_view()),
+    path("", OPS.as_view()),
 ]
