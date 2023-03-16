@@ -1,5 +1,5 @@
 from rest_framework.response import Response
-from rest_framework import status,generics
+from rest_framework import generics
 
 from ops.scripts.OP import operate
 
@@ -9,6 +9,7 @@ class OPS(generics.GenericAPIView):
     return Response({"message":"MS_RUNNING"})
   def post(self,req):
     data = req.data
+    res = []
     for client in data["clients"]:
-      operate(client)
-    return Response({"message":"OK", "data":client})
+      res.append(operate(client))
+    return Response({"message":"OK", "data":res})

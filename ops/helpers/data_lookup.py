@@ -14,7 +14,7 @@ newCondTime = "Ont autofind time   : "
 
 def data_lookup(comm, command, CONTRACT):
     command(f'display ont info by-desc "{CONTRACT}" | no-more ')
-    sleep(5)
+    sleep(4)
     value = decoder(comm)
     regex = checkIter(value, condition)
     FAIL = failChecker(value)
