@@ -9,4 +9,5 @@ __pycache__/
 *.txt
 !requirements.txt
 *.csv
-*.xlsx*.pyc
+*.xlsx
+*.pyc

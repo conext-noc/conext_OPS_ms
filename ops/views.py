@@ -1,13 +1,14 @@
 from rest_framework.response import Response
 from rest_framework import status,generics
 
-# from .scripts.OLT import olt
+from ops.scripts.OP import operate
+
 
 class OPS(generics.GenericAPIView):
   def get(self,req):
-    print(req)
-    data = {"message":"hello"}
-    return Response({"message":"GET METHOD", "data":data})
+    return Response({"message":"MS_RUNNING"})
   def post(self,req):
-    # olt(req.data)
-    return Response({"message":"POST METHOD", "data":req.data})
+    data = req.data
+    for client in data["clients"]:
+      operate(client)
+    return Response({"message":"OK", "data":client})
