@@ -1,8 +1,10 @@
 __pycache__/
 **/__pycache__/
 **/**/__pycache__/
-.envs/
+.venvs/
 .vscode/
+aws/
+*.zip
 .env
 !service_account_olt_operations.json
 *.json
@@ -11,3 +13,7 @@ __pycache__/
 *.csv
 *.xlsx
 *.pyc
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
