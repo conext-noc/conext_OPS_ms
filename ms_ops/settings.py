@@ -29,13 +29,13 @@ SECRET_KEY = os.environ["DJANGO_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['ops-ms-env.eba-i67ije3h.us-west-2.elasticbeanstalk.com', '127.0.0.1',"http://localhost:8000"]
 
 # USE OF CORS
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000"
+    "http://localhost:8000"
 ]
 CORS_ALLOW_CREDENTIALS = True
 
