@@ -31,7 +31,7 @@ SECRET_KEY = os.environ["DJANGO_KEY"]
 # DEBUG = True
 DEBUG = True
 
-ALLOWED_HOSTS = ['ops-env.us-west-2.elasticbeanstalk.com','http://ops-env.us-west-2.elasticbeanstalk.com','ops.conext.net.ve', '127.0.0.1',]
+ALLOWED_HOSTS = ['ops-env.us-west-2.elasticbeanstalk.com','http://ops-env.us-west-2.elasticbeanstalk.com','ops.conext.net.ve', '127.0.0.1','172.31.26.32']
 
 # USE OF CORS
 CORS_ALLOWED_ORIGINS = [
