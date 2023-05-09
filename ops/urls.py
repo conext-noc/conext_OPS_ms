@@ -1,7 +1,6 @@
 from django.urls import path
-from .views import OPS, CHECK
+from .views import OPS
 
 urlpatterns = [
-    path("", OPS.as_view()),
-    path("check/", CHECK.as_view()),
+    path("", OPS.as_view())
 ]
