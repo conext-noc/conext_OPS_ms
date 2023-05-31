@@ -1,6 +1,5 @@
 from ops.helpers.devices import devices
 from ops.scripts.ssh import ssh
-from ops.helpers.decoder import decoder
 
 
 def operate(data):
@@ -19,8 +18,7 @@ def operate(data):
     oltOptions = ["1", "2", "3"]
     if data["olt"] in oltOptions:
         ip = devices[f"OLT{data['olt']}"]
-        (comm, command, quit_ssh) = ssh(ip)
-        decoder(comm)
+        (command, quit_ssh) = ssh(ip)
         command(f"interface gpon {data['frame']}/{data['slot']}")
         command(f"ont {operation} {data['port']} {data['onu_id']}")
         command("quit")

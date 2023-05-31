@@ -8,7 +8,7 @@ load_dotenv()
 
 def ssh(ip):
     count = 1
-    delay = 0.8
+    delay = 0.25
     conn = paramiko.SSHClient()
     conn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     comm = None
@@ -46,4 +46,4 @@ def ssh(ip):
     command("enable")
     command("config")
 
-    return (comm, command, quit_ssh)
+    return (command, quit_ssh)
