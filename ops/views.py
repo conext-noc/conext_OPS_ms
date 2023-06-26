@@ -3,7 +3,8 @@ from rest_framework.response import Response
 from rest_framework import generics
 from django.http import HttpResponse
 from dotenv import load_dotenv
-from ops.scripts.OP import operate
+from ops.scripts.OX import client_operate
+
 
 load_dotenv()
 
@@ -17,7 +18,7 @@ class OPS(generics.GenericAPIView):
             data = req.data
             res = []
             for client in data["clients"]:
-                res.append(operate(client))
+                res.append(client_operate(client))
             return Response({"message": "OK", "error": False, "data": res})
 
         return HttpResponse("Bad Request to server", status=400)
