@@ -13,6 +13,12 @@ def client_operate(data):
     payload["lookup_value"] = data["contract"]
     req = db_request(endpoints["get_client"], payload)
 
+    if req["data"] is None:
+        return {
+            "message": "The required OLT & ONT does not exists",
+            "contract": data["contract"],
+        }
+
     client = req["data"]
     (command, quit_ssh) = ssh(olt_devices[str(client["olt"])])
     command(f'interface gpon {client["frame"]}/{client["slot"]}')

@@ -21,4 +21,4 @@ class OPS(generics.GenericAPIView):
                 res.append(client_operate(client))
             return Response({"message": "OK", "error": False, "data": res})
 
-        return HttpResponse("Bad Request to server", status=400)
+        return HttpResponse("Bad Request to server", status=500)
