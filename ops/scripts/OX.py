@@ -22,7 +22,7 @@ def client_operate(data):
     client = req["data"]
     (command, quit_ssh) = ssh(olt_devices[str(client["olt"])])
     command(f'interface gpon {client["frame"]}/{client["slot"]}')
-    command(f'ont {operation} {client["port"]}/{client["onu_id"]}')
+    command(f'ont {operation} {client["port"]} {client["onu_id"]}')
 
     payload["change_field"] = "OX"
     payload["new_values"] = resulted_operation
