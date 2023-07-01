@@ -25,7 +25,7 @@ def client_operate(data):
     command(f'ont {operation} {client["port"]} {client["onu_id"]}')
 
     payload["change_field"] = "OX"
-    payload["new_values"] = resulted_operation
+    payload["new_values"] = {"state": resulted_operation}
     req = db_request(endpoints["update_client"], payload)
     message = f'Cliente {client["name_1"]} {client["name_2"]} {client["contract"]} ha sido {result}'
     quit_ssh()
