@@ -22,3 +22,15 @@ class OPS(generics.GenericAPIView):
             return Response({"message": "OK", "error": False, "data": res})
 
         return HttpResponse("Bad Request to server", status=500)
+
+
+class OPSDashboard(generics.GenericAPIView):
+    def post(self, req):
+        data = req.data
+        if data["API_KEY"] == os.environ["API_KEY"]:
+            res = []
+            for client in data["clients"]:
+                res.append(client_operate(client))
+            return Response({"message": "OK", "error": False, "data": res})
+
+        return HttpResponse("Bad Request to server", status=500)
