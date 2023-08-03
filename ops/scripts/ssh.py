@@ -16,8 +16,8 @@ def ssh(ip):
     # Handling multiple SSH sessions
     while cont and count <= 3:
         try:
-            username = creds["creds"][count]["user_name"]
-            password = creds["creds"][count]["password"]
+            username = creds["data"][count]["user_name"]
+            password = creds["data"][count]["password"]
             port = 22
             conn.connect(ip, port, username, password)
             comm = conn.invoke_shell()
