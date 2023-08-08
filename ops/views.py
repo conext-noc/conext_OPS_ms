@@ -16,7 +16,7 @@ class OPS(generics.GenericAPIView):
             res = client_operate(
                 client
             )  # You can adjust the number of iterations as needed
-            data = {"message": "OK", "error": False, "data": res}
+            data = {"message": "OK", "error": False, "data": [res]}
             yield json.dumps(data) + "\n"
 
     def get(self, _):
