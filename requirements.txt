@@ -7,7 +7,8 @@
 # pytz==2023.3
 # typing_extensions==4.5.0
 # pre-commit==2.21.0
-requests==2.17.3asgiref==3.7.2
+# requests==2.17.3
+asgiref==3.7.2
 bcrypt==4.0.1
 certifi==2023.7.22
 cffi==1.15.1
