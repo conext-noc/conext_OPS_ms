@@ -32,8 +32,8 @@ SECRET_KEY = os.environ["DJANGO_KEY"]
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "ops-env.us-west-2.elasticbeanstalk.com",
-    "http://ops-env.us-west-2.elasticbeanstalk.com",
+    "ops-ms-dev.us-east-2.elasticbeanstalk.com",
+    "http://ops-ms-dev.us-east-2.elasticbeanstalk.com",
     "ops.conext.net.ve",
     "127.0.0.1",
     "localhost",
