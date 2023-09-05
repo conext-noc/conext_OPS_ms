@@ -1,8 +1,10 @@
 -- SELECT * FROM db_api_plans;
 -- SELECT * FROM db_api_clients;
-SELECT * FROM db_api_alarms;
+-- SELECT * FROM db_api_alarms;
 -- SELECT * FROM db_api_ports;
--- 
+SELECT * FROM db_api_oltpasswords;
+-- UPDATE db_api_oltpasswords SET password = 'bhSQ#b$2vd1$' WHERE cred_id = 3;
+
 -- 
 -- INSERT INTO db_api_oltpasswords (user_name, password)
 -- VALUES ('huawei', 'Tec#2023X$'),

@@ -6,7 +6,7 @@ from ops.helpers.definitions import endpoints
 
 def ssh(ip):
     count = 1
-    delay = 0.5
+    delay = 0.85
     conn = paramiko.SSHClient()
     conn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     comm = None
