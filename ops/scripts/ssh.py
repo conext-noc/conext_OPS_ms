@@ -5,7 +5,7 @@ from ops.helpers.definitions import endpoints
 
 
 def ssh(ip):
-    count = 1
+    count = 0
     delay = 0.85
     conn = paramiko.SSHClient()
     conn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -14,7 +14,7 @@ def ssh(ip):
     creds = db_request(endpoints["get_creds"], {})
 
     # Handling multiple SSH sessions
-    while cont and count <= 3:
+    while cont and count <= 2:
         try:
             username = creds["data"][count]["user_name"]
             password = creds["data"][count]["password"]
