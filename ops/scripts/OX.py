@@ -10,7 +10,7 @@ def client_operate(data):
     result = "Reactivado" if "R" in action else "Suspendido"
 
     payload["lookup_type"] = "C"
-    payload["lookup_value"] = data["contract"]
+    payload["lookup_value"] = {"contract":data["contract"], "olt": data["olt"]}
     req = db_request(endpoints["get_client"], payload)
 
     # return req
