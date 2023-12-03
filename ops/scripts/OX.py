@@ -13,6 +13,7 @@ def client_operate(data):
     payload["lookup_value"] = data["contract"]
     req = db_request(endpoints["get_client"], payload)
 
+    # return req
     if req["data"] is None:
         return {
             "message": "The required OLT & ONT does not exists",
