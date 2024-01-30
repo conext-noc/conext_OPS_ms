@@ -3,7 +3,7 @@ import os
 from rest_framework import generics
 from django.http import HttpResponse, StreamingHttpResponse
 from dotenv import load_dotenv
-from ops.scripts.OX import client_operate
+from ops.scripts.OX import client_operate_snmp
 
 
 load_dotenv()
@@ -11,7 +11,7 @@ load_dotenv()
 
 def data_generator(data):
     for client in data["clients"]:
-        res = client_operate(client)
+        res = client_operate_snmp(client)
         data = {"message": "OK", "error": False, "data": [res]}
         yield json.dumps(data) + "\n"
 
