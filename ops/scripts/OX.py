@@ -2,6 +2,10 @@ from ops.scripts.ssh import ssh
 from ops.helpers.request import db_request
 from ops.helpers.definitions import endpoints, olt_devices, payload
 from ops.helpers.snmp_request import snmp_set_request
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 def client_operate(data):
@@ -61,15 +65,12 @@ def client_operate_snmp(data):
         }
 
     client = req["data"]
-    # (command, quit_ssh) = ssh(olt_devices[str(client["olt"])])
-    # command(f'interface gpon {client["frame"]}/{client["slot"]}')
-    # command(f'ont {operation} {client["port"]} {client["onu_id"]}')
-    resp = snmp_set_request("ConextRoot","181.232.180.7","1.3.6.1.4.1.2011.6.128.1.1.2.46.1.1",client["oid_port"],client["onu_id"],operation)
+    community = db_request(endpoints["get_comm"], {})
+    resp = snmp_set_request(community["data"][1]["community"],olt_devices[str(client["olt"])],os.environ['OID_STATE'],client["oid_port"],client["onu_id"],operation)
     payload["change_field"] = "OX"
     payload["new_values"] = {"state": resulted_operation}
     req = db_request(endpoints["update_client"], payload)
     message = f'Cliente {client["name_1"]} {client["name_2"]} {client["contract"]} ha sido {result}'
-    # quit_ssh()
 
     return {
         "message": message,

@@ -16,5 +16,7 @@ endpoints = {
     "remove_client": "/remove-client",
     "get_plans": "/get-plans",
     "get_creds": "/get-creds",
+    "get_comm": "/get-comm",
+
 }
 olt_devices = {"1": "181.232.180.7", "2": "181.232.180.5", "3": "181.232.180.6"}
