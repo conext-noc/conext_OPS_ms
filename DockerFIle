@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+LABEL org.opencontainers.image.authors="cesar.sanchez@conext.com.ve"
+
+COPY . /app
+WORKDIR /app
+
+RUN pip install --no-cache-dir --upgrade -r requerimientos.txt
+
+EXPOSE 8000
+
+CMD ["fastapi", "run","--port", "8001", "--workers", "4"]
