@@ -1,0 +1,5 @@
+.env
+.venv
+config
+__pycache__
+registro_corte_*.json
