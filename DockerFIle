@@ -7,6 +7,6 @@ WORKDIR /app
 
 RUN pip install --no-cache-dir --upgrade -r requerimientos.txt
 
-EXPOSE 8000
+EXPOSE 8001
 
 CMD ["fastapi", "run","--port", "8001", "--workers", "4"]
